@@ -5,6 +5,7 @@ from graphic.graphical_element import GraphicalElement
 
 MINIMAL_WIDTH = 70
 MAXIMAL_WIDTH = 2 * MINIMAL_WIDTH
+GROWTH = 10
 HEIGHT = 15
 
 
@@ -23,10 +24,10 @@ class Player(GraphicalElement):
             self.rect.x = position - (self.width // 2)
 
     def grow(self):
-        self.__create_bar(min(MAXIMAL_WIDTH, self.width + 10), self.rect.x)
+        self.__create_bar(min(MAXIMAL_WIDTH, self.width + GROWTH), self.rect.x)
 
     def diminish(self):
-        self.__create_bar(max(MINIMAL_WIDTH, self.width - 10), self.rect.x)
+        self.__create_bar(max(MINIMAL_WIDTH, self.width - GROWTH), self.rect.x)
 
     def __create_bar(self, width, previous_x):
         self.width = width
