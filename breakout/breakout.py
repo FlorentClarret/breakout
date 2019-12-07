@@ -16,7 +16,9 @@ def main():
 
     all_sprites_group = pygame.sprite.Group()
 
-    player = Player()
+    player = Player(pygame.display.get_surface().get_width(),
+                    pygame.display.get_surface().get_height(),
+                    pygame.mouse.get_pos()[0])
     clock = pygame.time.Clock()
 
     all_sprites_group.add(player)
@@ -30,7 +32,7 @@ def main():
         screen.fill(WHITE)
         all_sprites_group.update()
 
-        player.move()
+        player.move(pygame.mouse.get_pos()[0])
 
         all_sprites_group.draw(screen)
         pygame.display.flip()

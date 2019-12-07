@@ -9,20 +9,18 @@ HEIGHT = 15
 
 
 class Player(GraphicalElement):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, screen_width, screen_height, position=0):
+        super().__init__(screen_width, screen_height)
         self.height = HEIGHT
-        self.__create_bar(MINIMAL_WIDTH, pygame.mouse.get_pos()[0])
+        self.__create_bar(MINIMAL_WIDTH, position)
 
-    def move(self):
-        mouse_x = pygame.mouse.get_pos()[0]
-
-        if mouse_x < (self.width // 2):
+    def move(self, position):
+        if position < (self.width // 2):
             self.rect.x = 0
-        elif mouse_x > self.screen_width - (self.width // 2):
+        elif position > self.screen_width - (self.width // 2):
             self.rect.x = self.screen_width - self.width
         else:
-            self.rect.x = mouse_x - (self.width // 2)
+            self.rect.x = position - (self.width // 2)
 
     def grow(self):
         self.__create_bar(min(MAXIMAL_WIDTH, self.width + 10), self.rect.x)
