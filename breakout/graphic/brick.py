@@ -5,7 +5,7 @@ from graphic.graphical_element import GraphicalElement
 
 BRICK_WIDTH = 30
 BRICK_HEIGHT = 15
-BRICK_MAX_HEALTH = 3
+BRICK_MAX_HEALTH = 1
 
 
 class Brick(GraphicalElement):
